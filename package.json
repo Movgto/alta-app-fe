@@ -5,7 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prerender": "ng run alta-app-fe:prerender",
     "build:prod": "ng build --configuration production",
+    "build:netlify": "cp dist/alta-app-fe/server/server.mjs dist/alta-app-fe/server/server.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:alta-app-fe": "node dist/alta-app-fe/server/server.mjs"
