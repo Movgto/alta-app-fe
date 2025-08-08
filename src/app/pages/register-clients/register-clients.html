@@ -1,0 +1,72 @@
+<mat-card class="w-full max-w-3xl mx-auto mt-4">
+    <mat-card-header>
+        <mat-card-title>
+            <h2 class="text-2xl font-bold">Registrar Cliente</h2>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <p class="text-sm font-medium text-slate-700">Complete los datos correspondientes para registrar un cliente.
+            </p>
+        </mat-card-subtitle>
+    </mat-card-header>
+    @if (!!form) {
+    <mat-card-content>
+        <form class="p-4" [formGroup]="form" (ngSubmit)="submit()">
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Nombre del Representante</mat-label>
+                <input matInput required type="text" formControlName="representativeName" autocomplete="name">
+                <mat-icon matSuffix>
+                    <ng-icon name="heroUserSolid"></ng-icon>
+                </mat-icon>
+                @if (form.get('representativeName')?.hasError('required')) {
+                <mat-error>Nombre del representante es requerido</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>RFC</mat-label>
+                <input matInput required type="text" formControlName="rfc">
+                <mat-icon matSuffix>
+                    <ng-icon name="heroIdentificationSolid"></ng-icon>
+                </mat-icon>
+                @if (form.get('rfc')?.hasError('required') || form.get('rfc')?.hasError('pattern')) {
+                <mat-error>RFC inválido</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Email</mat-label>
+                <input matInput required type="email" formControlName="email" autocomplete="email">
+
+                @if (form.get('email')?.hasError('required') || form.get('email')?.hasError('email')) {
+                <mat-error>Email inválido</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Teléfono</mat-label>
+                <input matInput required type="tel" formControlName="phoneNumber" autocomplete="tel">
+                <mat-icon matSuffix>
+                    <ng-icon name="heroPhoneSolid"></ng-icon>
+                </mat-icon>
+                @if (form.get('phoneNumber')?.hasError('required') || form.get('phoneNumber')?.hasError('pattern')) {
+                <mat-error>Teléfono inválido</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Razón Social</mat-label>
+                <input matInput required type="text" formControlName="companyName" autocomplete="organization">
+                <mat-icon matSuffix>
+                    <ng-icon name="heroBuildingOfficeSolid"></ng-icon>
+                </mat-icon>
+                @if (form.get('companyName')?.hasError('required')) {
+                <mat-error>Razón social es requerida</mat-error>
+                }
+            </mat-form-field>
+
+            <!-- Campo para subir un documento -->
+            <app-upload-doc-button [handleSubmit]="onSubmit" (onUpload)="onUpload($event)" />
+            <div class="mt-4">
+                <button color="primary" mat-raised-button type="submit">Registrar</button>
+            </div>
+        </form>
+    </mat-card-content>
+    }
+</mat-card>

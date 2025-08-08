@@ -1,0 +1,22 @@
+<div class="w-full mb-4">
+    <label class="block text-sm font-medium mb-2">Documento/Imagen</label>
+    <div class="flex items-center gap-2">
+        <input #fileInput type="file" accept="image/*,.pdf,.doc,.docx" (change)="onFileSelected($event)" class="hidden">
+        <button type="button" mat-stroked-button (click)="fileInput.click()" class="flex items-center gap-2">
+            <mat-icon>
+                <ng-icon name="heroDocumentArrowUpSolid"></ng-icon>
+            </mat-icon>
+            {{ selectedFileName || 'Seleccionar archivo' }}
+        </button>
+        @if (selectedFileName) {
+        <button type="button" mat-icon-button color="warn" (click)="removeFile()" matTooltip="Remover archivo">
+            <mat-icon>
+                <ng-icon name="heroXMarkSolid"></ng-icon>
+            </mat-icon>
+        </button>
+        }
+    </div>
+    @if (fileError) {
+    <mat-error class="text-red-500 text-sm mt-1">{{ fileError }}</mat-error>
+    }
+</div>

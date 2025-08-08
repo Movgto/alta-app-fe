@@ -1,0 +1,36 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{ client.representative_name }}
+        </mat-panel-title>
+        <mat-panel-description>
+            <div class="flex w-full justify-between items-center">
+                <p>{{ client.email }}</p>
+
+                <!-- Actions -->
+                <div class="flex gap-2">
+                    <button mat-icon-button class="text-blue-500" (click)="$event.stopPropagation()">
+                        <a
+                            [routerLink]="['/client', client.id]"                                                        
+                        >
+                            <mat-icon>
+                                <ng-icon name="heroEyeSolid"></ng-icon>
+                            </mat-icon>
+                        </a>
+                    </button>
+                    <button mat-icon-button class="text-red-500" (click)="deleteClient($event)">
+                        <mat-icon>
+                            <ng-icon name="heroTrashSolid"></ng-icon>
+                        </mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="p-4">
+        <p><strong>Razón Social:</strong> {{ client.company_name }}</p>
+        <p><strong>Teléfono:</strong> {{ client.phone_number }}</p>
+        <p><strong>RFC:</strong> {{ client.rfc }}</p>
+    </div>
+</mat-expansion-panel>

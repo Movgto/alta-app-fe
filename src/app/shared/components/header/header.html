@@ -1,0 +1,17 @@
+<header class="fixed w-full bg-gray-800 text-white flex justify-center items-center z-[9999]">
+    <div class="flex justify-between items-center w-full max-w-6xl">
+        <h1 class="text-2xl p-4 font-bold">Alta App</h1>
+        <nav class="h-full flex self-end">
+            <ul class="flex">
+                <li>
+                    <a class="block hover:bg-blue-600/40 px-4 py-2" routerLink="/"
+                        [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="bg-blue-500">Clientes</a>
+                </li>
+                <li>
+                    <a routerLink="register" routerLinkActive="bg-blue-500"
+                        class="block hover:bg-blue-600/40 px-4 py-2">Registro</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

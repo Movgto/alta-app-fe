@@ -1,0 +1,24 @@
+<div class="p-4">
+    <h2 class="text-2xl font-bold mb-2">Clientes</h2>
+    <p class="mb-4 text-slate-800">Lista de clientes registrados</p>    
+    <div class="bg-white p-4 rounded shadow">
+        @if (loadingClients) {
+        <div class="flex flex-col w-full">
+            <p-skeleton class="mb-2" width="100%" height="3rem"></p-skeleton>
+            <p-skeleton class="mb-2" width="100%" height="3rem"></p-skeleton>
+            <p-skeleton class="mb-2" width="100%" height="3rem"></p-skeleton>
+            <p-skeleton class="mb-2" width="100%" height="3rem"></p-skeleton>
+            <p-skeleton class="mb-2" width="100%" height="3rem"></p-skeleton>
+        </div>
+        }
+        @else if (clients().length === 0) {
+        <p class="text-gray-500">No hay clientes registrados.</p>
+        } @else {
+        <mat-accordion [multi]="true" displayMode="flat">
+            @for (client of clients(); track client.id) {
+            <app-client-card [clientSignal]="client"></app-client-card>
+            }
+        </mat-accordion>
+        }
+    </div>
+</div>

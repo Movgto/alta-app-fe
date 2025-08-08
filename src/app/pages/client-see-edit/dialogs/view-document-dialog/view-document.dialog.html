@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Documento de cliente</h2>
+<mat-dialog-content>
+    @if (fileData(); as fileData) {
+        <app-document-viewer
+            [data]="fileData.data"
+            [mimetype]="fileData.mimetype"
+            [filename]="fileData.filename"
+        />
+    }
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cerrar</button>
+</mat-dialog-actions>
