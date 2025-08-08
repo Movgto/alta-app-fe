@@ -1,0 +1,9 @@
+[build]
+command = "npm run build:ssr"
+functions = "./netlify/functions" # Adjust if your functions are elsewhere
+publish = "dist/<your-app-name>/server" # Adjust to your actual publish directory
+
+[[redirects]]
+from = "/*"
+to = "/.netlify/functions/server" # Point to your SSR function
+status = 200
