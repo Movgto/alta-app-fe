@@ -4,9 +4,6 @@ publish = "dist/alta-app-fe/browser"
 
 [build.environment]
 NODE_VERSION = "22"
-# Enable detailed function logs for debugging
-AWS_LAMBDA_LOG_GROUP_NAME = "netlify-functions"
-AWS_LAMBDA_LOG_STREAM_NAME = "server"
 
 [functions]
 directory = "netlify/functions"
