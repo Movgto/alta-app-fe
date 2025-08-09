@@ -1,6 +1,6 @@
 [build]
 command = "npm run build:prod"
-publish = "dist/alta-app-fe/server"
+publish = "dist/alta-app-fe/browser"
 
 [build.environment]
 NODE_VERSION = "22"
@@ -32,7 +32,7 @@ status = 200
 # Route all other requests to the SSR function
 [[redirects]]
 from = "/*"
-to = "/netlify/functions/server"
+to = "/.netlify/functions/server"
 status = 200
 force = false
 
