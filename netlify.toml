@@ -32,7 +32,7 @@ status = 200
 # Route all other requests to the SSR function
 [[redirects]]
 from = "/*"
-to = "/.netlify/functions/server"
+to = "/netlify/functions/server"
 status = 200
 force = false
 
