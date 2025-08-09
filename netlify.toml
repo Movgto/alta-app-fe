@@ -1,6 +1,6 @@
 [build]
 command = "npm run build:prod"
-publish = "dist/alta-app-fe/browser"
+publish = "dist/alta-app-fe/server"
 
 [build.environment]
 NODE_VERSION = "22"
