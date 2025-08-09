@@ -18,14 +18,12 @@ export class Home implements OnInit {
 
   constructor(
     private _changeDetectorRef: ChangeDetectorRef
-  ) {
-    this.clientsService.$onUpdateClients.subscribe(() => {
-      this._changeDetectorRef.markForCheck();
-    })
+  ) {    
   }
 
   ngOnInit(): void {
     console.log('Home component initialized');
     console.log('Clients:', this.clients());
+    this.clientsService.$onUpdateClients.next();
   }
 }
