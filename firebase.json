@@ -1,0 +1,20 @@
+{
+  "hosting": {
+    "public": "dist/alta-app-fe/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "destination": "https://sixth-oath-426319-k0.uc.r.appspot.com/**"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
