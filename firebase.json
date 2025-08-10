@@ -17,7 +17,7 @@
         }
     ],
     "hosting": {
-        "public": "dist/browser",
+        "public": "dist/alta-app-fe/browser",
         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
         "rewrites": [
         {
