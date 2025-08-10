@@ -1,31 +1,29 @@
 {
-  "hosting": {
-    "public": "dist/alta-app-fe/browser",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+    "functions": [
+        {
+            "source": "functions",
+            "codebase": "default",
+            "ignore": [
+                "node_modules",
+                ".git",
+                "firebase-debug.log",
+                "firebase-debug.*.log",
+                "*.local"
+            ],
+            "predeploy": [
+                "npm --prefix \"$RESOURCE_DIR\" run lint",
+                "npm --prefix \"$RESOURCE_DIR\" run build"
+            ]
+        }
     ],
-    "rewrites": [
-      {
-        "source": "/api/**",
-        "destination": "https://sixth-oath-426319-k0.uc.r.appspot.com/**"
-      },
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  },
-  "apphosting": {
-    "backendId": "alta-app",
-    "rootDir": "/",
-    "ignore": [
-      "node_modules",
-      ".git",
-      "firebase-debug.log",
-      "firebase-debug.*.log",
-      "functions"
-    ]
-  }
+    "hosting": {
+        "public": "dist/browser",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+        "rewrites": [
+        {
+            "source": "**",
+            "function": "ssr"
+        }
+        ]
+    }
 }
