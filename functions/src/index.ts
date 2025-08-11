@@ -1,19 +1,16 @@
-import functions from 'firebase-functions';
-import express from 'express';
-import { Request, Response } from "express";
-import { ngExpressEngine } from "@nguniversal/express-engine";
-import { join } from 'path';
-const { AppServerModule } = require("./dist/server/main");
+import {join} from "path";
+import {Request, Response} from "express";
 
-const app = express();
-app.engine("html", ngExpressEngine({
-    bootstrap: AppServerModule,
-}));
-app.set("view engine", "html");
-app.set("views", join(__dirname, "dist", "browser"));
-app.get("*.*", express.static(join(__dirname, "dist", "browser")));
-app.get("*", (req: Request, res: Response) => {
-    res.render("index", { req });
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const functions = require("firebase-functions");
+
+const app = async () => {
+  const serverPath = join(__dirname, "..", "dist", "server", "server.mjs");
+  const {reqHandler} = await import(serverPath);
+  return reqHandler;
+};
+
+exports.ssr = functions.https.onRequest(async (req: Request, res: Response) => {
+  const handler = await app();
+  return handler(req, res);
 });
-
-exports.ssr = functions.https.onRequest(app);
