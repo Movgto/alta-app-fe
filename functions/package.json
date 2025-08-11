@@ -9,7 +9,9 @@
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "copy-angular": "powershell -Command \"if (!(Test-Path dist)) { mkdir dist }; robocopy ../dist dist /E /NFL /NDL /NJH /NJS /nc /ns /np; if ($LASTEXITCODE -le 7) { exit 0 } else { exit $LASTEXITCODE }\"",
+    "predeploy": "npm install && npm run copy-angular && npm run build"
   },
   "engines": {
     "node": "22"
