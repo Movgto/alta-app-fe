@@ -50,7 +50,14 @@ Proporcionar una plataforma intuitiva y eficiente para empresas que necesitan ad
 - **ESLint** - Linting de código
 - **Prettier** - Formateo de código
 
-## 🚀 Instalación y Configuración
+## 🚀 Información de despliegue
+El despliegue de esta aplicación fué realizado utilizando un conjunto de servicios en la nube de Google Cloud, Firebase y AWS:
+- Este proyecto frontend fúe desplegado con `Firebase Hosting` y `Firebase Functions` para las funciones de SSR y la redirección de llamadas https hacia el servidor de la API.
+- El backend ha sido desplegado con otro servicio de Google: `App Engine` conectado a una base de datos `MySQL` que a su vez es proveida por un servidor web con el servicio de `Amazon Web Services`: `Aurora and RDS`.
+
+Puedes ver este proyecto en acción [aquí](https://alta-app-firebase.web.app).
+
+## ⚙️ Instalación y Configuración
 
 ### Prerrequisitos
 

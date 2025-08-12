@@ -14,11 +14,11 @@ export class Home implements OnInit {
   clientsService = inject(ClientsService);
 
   clients = this.clientsService.clients;
-  loadingClients = this.clientsService.isLoading;
+  loadingClients = this.clientsService.loading;
 
   constructor(
     private _changeDetectorRef: ChangeDetectorRef
-  ) {    
+  ) {
   }
 
   ngOnInit(): void {
